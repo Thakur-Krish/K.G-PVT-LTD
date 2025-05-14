@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Play:wght@400;700&family=Winky+Rough:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+
+  <title>KG PVT LIMITED - Elevator Solutions</title>
+  <!-- AOS Library for animation -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <style>
+    /* BASIC RESET */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Segoe UI', sans-serif; line-height: 1.6; color: #222; }
+
+
+    /* navbar style */
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+    }
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #222;
+        padding: 15px 20px;
+    }
+    #logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1.8rem;
+}
+
+.kg {
+  background: #ff6600;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 2rem;
+}
+
+.pvt {
+  color: #333;
+  letter-spacing: 1px;
+  font-size: 1.2rem;
+}
+
+    
+    .nav-links {
+        list-style: none;
+        display: flex;
+    }
+    .nav-links li {
+        margin: 0 15px;
+    }
+    .nav-links a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 18px;
+        transition: 0.3s;
+    }
+    .nav-links a:hover {
+        color: #ff6600;
+    }
+    .hamburger {
+        display: none;
+        flex-direction: column;
+        cursor: pointer;
+    }
+    .hamburger span {
+        background: #fff;
+        width: 25px;
+        height: 3px;
+        margin: 3px 0;
+    }
+    @media (max-width: 768px) {
+        .nav-links {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 60px;
+            left: 0;
+            background: #222;
+            width: 100%;
+            text-align: center;
+            padding: 10px 0;
+        }
+        .nav-links li {
+            margin: 10px 0;
+        }
+        .hamburger {
+            display: flex;
+        }
+    }
+    .nav-links.active {
+        display: flex !important;
+    }
+/* nav bar style end here */
+    /* HERO SECTION */
+    header {
+      height: 100vh;
+      background: url('image/1img.jpg') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      padding: 20px;
+    }
+    header h1 { font-size: 3rem; }
+    header p { font-size: 1.2rem; margin: 10px 0 20px; }
+    .btn {
+      padding: 12px 25px;
+      background: #ff6600;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      transition: 0.3s ease;
+    }
+    .btn:hover { background: #e65c00; }
+
+    /* SECTIONS */
+    section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 40px;
+      color: #333;
+    }
+
+    /* SERVICES / LIFT TYPES */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #f8f8f8;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .card:hover { transform: translateY(-8px); }
+    .card h3 { margin-bottom: 10px; color: #ff6600; }
+
+    /* CONTACT FORM */
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    input, textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+    form button {
+      background: #28a745;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    form button:hover { background: #218838; }
+
+    /* FOOTER */
+  footer {
+  background: #222;
+  color: white;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  text-align: left;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-section {
+  flex: 1;
+  margin: 15px;
+  min-width: 250px;
+}
+
+.footer-section h3 {
+  margin-bottom: 10px;
+  color: #00d1b2;
+}
+
+.footer-section a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  margin: 5px 0;
+}
+
+.footer-section a:hover {
+  text-decoration: underline;
+  color: #00ffc3;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #444;
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-section {
+    margin: 10px 0;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
+}
+
+
+    h1,h2,h3 {
+     font-family: "Josefin Sans", sans-serif;
+     font-optical-sizing: auto;
+     font-weight: weight;
+     font-style: normal;
+    }
+
+
+
+
+
+    #lift-types {
+  background-image: url('image/2img.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  padding: 80px 20px;
+  color: black;
+  text-align: center;
+}
+
+#lift-types h2
+{
+  color: white;
+}
+
+
+
+
+   /* Container */
+  .why-choose-us {
+    max-width: 1200px;
+    padding: 40px 20px;
+    margin: auto;
+    text-align: center;
+  }
+
+  /* Heading */
+  .why-choose-us h2 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #ff6600;
+    margin-bottom: 12px;
+  }
+  .why-choose-us p.subtitle {
+    font-size: 1.2rem;
+    color: #555;
+    margin-bottom: 40px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Features grid */
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+  }
+
+  /* Feature cards */
+  .feature-card {
+    background: #f8faff;
+    border-radius: 12px;
+    padding: 30px 25px;
+    box-shadow: 0 8px 20px rgba(0, 64, 128, 0.07);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+    will-change: transform, opacity;
+  }
+
+  .feature-card.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Icon circle */
+  .feature-icon {
+    width: 70px;
+    height: 70px;
+    background: #004080;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 36px;
+    box-shadow: 0 4px 15px rgba(0, 64, 128, 0.3);
+    flex-shrink: 0;
+  }
+
+  /* Feature title */
+  .feature-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #ff6600;
+    margin-bottom: 12px;
+  }
+
+  /* Feature description */
+  .feature-desc {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.4;
+    max-width: 290px;
+  }
+
+  /* Responsive adjustments for small devices */
+  @media (max-width: 600px) {
+    .why-choose-us {
+      padding: 24px 15px;
+    }
+    .why-choose-us h2 {
+      font-size: 2rem;
+    }
+    .why-choose-us p.subtitle {
+      font-size: 1rem;
+      margin-bottom: 28px;
+      max-width: 100%;
+    }
+    .features {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .feature-card {
+      padding: 24px 20px;
+      max-width: 100%;
+      margin: auto;
+    }
+    .feature-desc {
+      max-width: 100%;
+    }
+  }
+
+  /* Wobble Animation Style */
+
+  #topwobble
+  {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+  #wobble{
+      border-radius: 10px;
+      animation: wobble 5s infinite;
+      margin-top: 80px;
+      width: 40%;
+      display: grid;      /* grid container */
+      place-items: center; /* both axis center */
+      
+      
+    }
+
+    /* Wobble Keyframes */
+    @keyframes wobble {
+      0% {
+        transform: translateX(0%) rotate(0deg);
+      }
+      15% {
+        transform: translateX(-10%) rotate(-5deg);
+      }
+      30% {
+        transform: translateX(8%) rotate(3deg);
+      }
+      45% {
+        transform: translateX(-6%) rotate(-3deg);
+      }
+      60% {
+        transform: translateX(4%) rotate(2deg);
+      }
+      75% {
+        transform: translateX(-2%) rotate(-1deg);
+      }
+      100% {
+        transform: translateX(0%) rotate(0deg);
+      }
+    }
+
+
+
+      #career-options {
+    padding: 60px 20px;
+    background: #ffffff;
+    text-align: center;
+  }
+
+  #career-options h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #222;
+  }
+
+  #career-options .subtitle {
+    font-size: 18px;
+    color: #666;
+    margin-bottom: 40px;
+  }
+
+  .career-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;
+  }
+
+  .career-card {
+    background: #f0f0f0;
+    padding: 25px;
+    width: 260px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.4s, opacity 0.6s;
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  .career-card h3 {
+    margin-bottom: 10px;
+    color: #ff5500;
+    font-size: 20px;
+  }
+
+  .career-card p {
+    color: #444;
+    font-size: 15px;
+  }
+
+  .career-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 768px) {
+    .career-card {
+      width: 90%;
+    }
+  }
+
+
+
+  /* scrollbar */
+
+
+  
+  ::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #f0f0f0;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: url('image/scroll.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 10px;
+  }
+
+
+    
+  </style>
+</head>
+<body>
+
+
+
+    <!-- nav bar section is here -->
+
+    <nav>
+        <div class='logo'>  
+         <span class="kg">KG</span>
+         <span class="pvt">PVT LTD</span>
+        </div>
+        <ul class='nav-links'>
+            <li><a href='#header'>Home</a></li>
+            <li><a href='#about'>About</a></li>
+            <li><a href='#services'>Services</a></li>
+            <li><a href='#contact'>Contact</a></li>
+        </ul>
+        <div class='hamburger'>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+    
+
+  <!-- HERO SECTION -->
+  <header id="header">
+    <div>
+      <h1>KG PVT LIMITED</h1>
+      <p>Raising Standards, One Floor at a Time</p>
+      <a href="#services" class="btn">Explore Services</a>
+      <a href="#career-options" class="btn">career options</a>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about" data-aos="fade-up">
+    <h2>About Us</h2>
+    <p style="text-align: center;">
+      KG PVT LIMITED is a leading elevator company providing world-class lift installation, modernization, and maintenance services. Trusted by residential and commercial clients for safety, speed, and service.
+    </p>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" data-aos="fade-up">
+    <h2>Our Services</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Lift Installation</h3>
+        <p>High-quality elevator installations for homes, offices, malls, and factories.</p>
+      </div>
+      <div class="card">
+        <h3>Lift Maintenance</h3>
+        <p>Regular checks and annual contracts to ensure lift safety and uptime.</p>
+      </div>
+      <div class="card">
+        <h3>Modernization</h3>
+        <p>Upgrade old lifts with new technology for better speed, design & safety.</p>
+      </div>
+      <div class="card">
+        <h3>Lift Repair</h3>
+        <p>Quick and reliable breakdown support with expert technicians.</p>
+      </div>
+      <div class="card">
+        <h3>Custom Design</h3>
+        <p>Get personalized lift interiors and size configurations as per your project.</p>
+      </div>
+      <div class="card">
+        <h3>AMC Contracts</h3>
+        <p>Affordable Annual Maintenance Contracts for long-term peace of mind.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIFT TYPES -->
+ 
+  <!-- LIFT TYPES -->
+  <section id="lift-types">
+    <h2>Lift Types</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Passenger Lift</h3>
+        <p>Ideal for apartments and offices.</p>
+      </div>
+      <div class="card">
+        <h3>Goods Lift</h3>
+        <p>Heavy duty lifts for factories and warehouses.</p>
+      </div>
+      <div class="card">
+        <h3>Hospital Lift</h3>
+        <p>Spacious and smooth lifts for stretchers and patients.</p>
+      </div>
+      <div class="card">
+        <h3>Capsule Lift</h3>
+        <p>Stylish glass lifts for hotels and malls.</p>
+      </div>
+      <div class="card">
+        <h3>Home Lift</h3>
+        <p>Compact lifts for personal homes and villas.</p>
+      </div>
+      <div class="card">
+        <h3>Dumbwaiter</h3>
+        <p>Mini-lifts for kitchens, hotels, and restaurants.</p>
+      </div>
+    </div>
+  </section>
+
+ <!-- why choose us -->
+
+
+<section class="why-choose-us" aria-label="Why Choose KG PVT LTD">
+  <h2>Why Choose Us</h2>
+  <p class="subtitle">
+    Discover the key reasons why KG PVT LTD stands out as your trusted partner for excellence and innovation.
+  </p>
+  <div class="features">
+    <div class="feature-card" tabindex="0">
+      <div class="feature-icon" aria-hidden="true">🚀</div>
+      <h3 class="feature-title">Fast Delivery</h3>
+      <p class="feature-desc">We ensure quick turnaround times without compromising quality, delivering your projects on time, every time.</p>
+    </div>
+    <div class="feature-card" tabindex="0">
+      <div class="feature-icon" aria-hidden="true">💼</div>
+      <h3 class="feature-title">Professional Team</h3>
+      <p class="feature-desc">Our experienced and skilled professionals bring expertise and dedication to every project we undertake.</p>
+    </div>
+    <div class="feature-card" tabindex="0">
+      <div class="feature-icon" aria-hidden="true">🌿</div>
+      <h3 class="feature-title">Sustainable Approach</h3>
+      <p class="feature-desc">We prioritize eco-friendly practices and sustainable solutions to minimize our environmental footprint.</p>
+    </div>
+    <div class="feature-card" tabindex="0">
+      <div class="feature-icon" aria-hidden="true">🔒</div>
+      <h3 class="feature-title">Quality & Security</h3>
+      <p class="feature-desc">We maintain the highest standards of quality control and ensure data security in all our processes.</p>
+    </div>
+  </div>
+<div id="topwobble">
+<div id="wobble">
+<a href="#contact" class="btn">Text Us</a>
+
+</div>
+</div>
+</section>
+
+<!-- CAREER OPTIONS -->
+<section id="career-options">
+  <h2>Career Opportunities</h2>
+  <p class="subtitle">Join KG PVT LTD and grow with India’s trusted lift brand</p>
+  <div class="career-cards">
+    <div class="career-card">
+      <h3>Lift Technician</h3>
+      <p>Handle installation, repair, and servicing of elevators.</p>
+    </div>
+    <div class="career-card">
+      <h3>Sales Executive</h3>
+      <p>Promote our lift solutions to residential and commercial clients.</p>
+    </div>
+    <div class="career-card">
+      <h3>Site Engineer</h3>
+      <p>Manage on-site lift projects and ensure quality control.</p>
+    </div>
+    <div class="career-card">
+      <h3>Customer Support</h3>
+      <p>Assist clients and handle maintenance requests efficiently.</p>
+    </div>
+  </div>
+</section>
+
+
+
+
+  <!-- CONTACT -->
+ <section id="contact" data-aos="fade-up">
+  <form action="contact.php" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required><br>
+    <input type="email" name="email" placeholder="Your Email" required><br>
+    <input type="tel" name="phone" placeholder="Phone Number" required><br>
+    <textarea name="message" placeholder="Your Message" required></textarea><br>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+  <!-- FOOTER -->
+ <footer>
+  <div class="footer-container">
+    <div class="footer-section contact">
+      <h3>Contact Us</h3>
+      <p><a href="mailto:krishcodes12@gmail.com">📧 krishcodes12@gmail.com</a></p>
+      <p><a href="tel:+911234567890">📞 +91 12345 67890</a></p>
+      <p><a href="https://wa.me/911234567890" target="_blank">💬 WhatsApp Us</a></p>
+    </div>
+
+    <div class="footer-section social">
+      <h3>Follow Us</h3>
+      <p>
+        <a href="https://facebook.com" target="_blank">🌐 Facebook</a> |
+        <a href="https://instagram.com" target="_blank">📸 Instagram</a>
+      </p>
+    </div>
+
+    <div class="footer-section policy">
+      <h3>Quick Links</h3>
+      <p><a href="#">📄 Terms & Conditions</a></p>
+      <p><a href="#">🔐 Privacy Policy</a></p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    &copy; 2025 KG PVT LIMITED. All Rights Reserved.
+  </div>
+</footer>
+
+
+  <!-- AOS + JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init();
+
+    function sendMessage(event) {
+      event.preventDefault();
+      const name = document.getElementById('name').value;
+      alert("Thanks " + name + "! Your message has been sent.");
+      // You can integrate Formspree or backend here
+    }
+
+
+
+    
+
+
+
+    // why shoose us
+ // Intersection observer for scroll animations
+  document.addEventListener("DOMContentLoaded", function () {
+    const featureCards = document.querySelectorAll('.feature-card');
+
+    const options = {
+      root: null,
+      rootMargin: '0px 0px -80px 0px',
+      threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, options);
+
+    featureCards.forEach(card => {
+      observer.observe(card);
+    });
+  });
+
+
+
+
+
+    // Animation on scroll
+  window.addEventListener("scroll", function () {
+    const cards = document.querySelectorAll(".career-card");
+    cards.forEach(card => {
+      const top = card.getBoundingClientRect().top;
+      const trigger = window.innerHeight - 100;
+      if (top < trigger) {
+        card.classList.add("visible");
+      }
+    });
+  });
+
+
+
+  // navbarjs
+
+  function toggleMenu() {
+      document.querySelector('.nav-links').classList.toggle('active');
+  }
+  
+  // Hamburger icon per event listener lagao
+  document.querySelector('.hamburger').addEventListener('click', toggleMenu);
+
+    
+  </script>
+
+</body>
+</html>
